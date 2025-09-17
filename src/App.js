@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
-
+/* eslint-disable no-unused-vars */
+import "./App.css";
+import ChatPerson from "./Components/ChatPerson/ChatPerson.jsx";
+import Content from "./Components/Content/Content";
+import ContentChat from "./Components/ContentChat/ContentChat.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const routers = createBrowserRouter([
+		{ path: "/", element: <Content /> },
+		{ path: "/contentChat", element: <ContentChat /> },
+		{ path: "/chatPerson", element: <ChatPerson /> },
+	]);
+
+	return (
+		<>
+			<RouterProvider router={routers} />;
+		</>
+	);
 }
 
 export default App;
